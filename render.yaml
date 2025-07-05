@@ -12,10 +12,8 @@ services:
         value: your-weatherapi-key-here
     plan: free
 
-  - type: web
+  - type: static
     name: apawcalypse-frontend
-    env: static
     rootDir: apawcalypse2-frontend
     buildCommand: "npm install && npm run build"
     staticPublishPath: build
-    plan: free
