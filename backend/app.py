@@ -129,5 +129,5 @@ def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
 # Don't include this for Render
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
