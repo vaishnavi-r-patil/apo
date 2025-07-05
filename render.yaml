@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: apawcalypse-backend
+    env: python
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: RAPIDAPI_KEY
+        value: your-rapidapi-key-here
+      - key: WEATHERAPI_KEY
+        value: your-weatherapi-key-here
+    plan: free
+
+  - type: web
+    name: apawcalypse-frontend
+    env: static
+    rootDir: apawcalypse2-frontend
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: build
+    plan: free
