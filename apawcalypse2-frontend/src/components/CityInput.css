@@ -1,132 +1,145 @@
-.city-form {
-  background-color: var(--bg);
-  color: var(--text);
-  border:1px solid var(--border);
+/* CityInput.css */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light and Dark Theme */
+body.light {
+  background-color: #ffffff;
+  color: #222;
+}
+
+body.dark {
+  background-color: #0f0f0f;
+  color: #f5f5f5;
+}
+
+/* Container */
+.city-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 2vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Top Controls */
+.top-controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin-bottom: 2rem;
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Form */
+.city-input-form {
+  background: transparent;
+  border: 1px solid currentColor;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: background-color 0.3s;
-}
-.head{
-  color: var(--text);
-  font-weight: 100 ;
-  text-align: center;
-}
-
-
-.city-form h1 {
-  margin-bottom: 1.5rem;
-  font-weight: 100;
-  font-size: 2rem;
-}
-
-.city-form input {
+  max-width: 500px;
   width: 100%;
-  max-width: 350px;
-  padding: 0.8rem 1rem;
-  font-size: 1.1rem;
-  border: 1px solid;
-  border-radius: 8px;
-  transition: var(--border) 0.3s;
-  background-color: #fff;
-  
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
-.city-form input {
-  background-color: var(--bg);
-  color: var(--text);
-  border-color: var(--border);
-}
-.city-form input:focus {
-  outline: none;
-  border-color: none; 
-  box-shadow: none;
+.city-input-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
-
-.city-form button {
-  margin-top: 1.5rem;
-  margin-left: 2rem;
-  padding: 0.7rem 1.8rem;
-  background-color: var(--btn-bg);
-  color: var(--btn-text);
-  font-size: 1.2rem;
-  border-radius: 8px;
-  transition: background-color 0.3s;
-}
-
-
-
-.app-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 5rem;
-}
-
-
-button {
-  font-weight: 100;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: var(--btn-bg);
-  color: var(--btn-text);
-  transition: background-color 0.3s ease;
-  padding: 0.7rem 1.8rem;
-}
-
-button.submit {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 100;       
+/* Input Field */
+.city-input-form input {
+  padding: 0.7rem 1rem;
   font-size: 1rem;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  line-height: 1.2;
+  width: 70%;
+  border: 1px solid #888;
+  border-radius: 8px;
+  outline: none;
+  margin-right: 1rem;
+  background-color: transparent;
+  color: inherit;
+  transition: border-color 0.2s;
 }
 
-
-
-button.submit:hover{
-  background-color: var(--btn-hover-bg);
-  color: var(--btn-hover-text);
+.city-input-form input::placeholder {
+  color: #999;
 }
 
+/* Submit Button */
+.city-input-form button {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
+body.light .city-input-form button {
+  background-color: #0077cc;
+}
 
+.city-input-form button:hover {
+  background-color: #666;
+}
 
+body.light .city-input-form button:hover {
+  background-color: #005fa3;
+}
 
+/* Loading Spinner */
+.loading-image-container {
+  margin-top: 2rem;
+}
 
-.spinner-img {
-  width: 200px;
-  height: 200px;
-  animation: spin 3s linear infinite;
-  margin: 12px auto;
-  display: block;
+.loading-image {
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-  0% {
+  from {
     transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
 
+/* Responsive */
+@media (max-width: 600px) {
+  .top-controls {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+  }
 
+  .city-input-form input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 
-
-
-
-.loading-box {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.fun-fact { 
-  font-style: italic;
-  color: #888;
-  font-size: 0.95rem;
+  .city-input-form button {
+    width: 100%;
+  }
 }

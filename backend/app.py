@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
@@ -7,7 +7,8 @@ from utils.threat_score import compute_threat_score
 
 load_dotenv()
 
-app = Flask(__name__)
+# Point to frontend build
+app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
 CORS(app)
 
 RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY")
@@ -118,5 +119,15 @@ def get_city_info():
     result = get_all_city_data(city_input)
     return jsonify(result)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Serve React frontend build
+@app.route('/')
+def serve_react():
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory(app.static_folder, path)
+
+# Don't include this for Render
+# if __name__ == '__main__':
+#     app.run(debug=True)

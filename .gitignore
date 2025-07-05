@@ -1,0 +1,14 @@
+# Ignore Python virtual environment
+venv/
+
+# Ignore environment variable files
+.env
+
+# Node modules (just in case)
+frontend/node_modules/
+
+# React build output
+frontend/build/
+
+# Mac system files (optional)
+.DS_Store

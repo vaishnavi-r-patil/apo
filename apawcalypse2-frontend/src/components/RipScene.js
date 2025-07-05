@@ -69,8 +69,8 @@ const RipScene = ({ onComplete }) => {
         <motion.img
           src={ghostcat}
           alt="Ghost Cat"
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: -220 }}
+          initial={{ opacity: 0, y: 1 }}
+          animate={{ opacity: 1, y: -260 }}
           transition={{ duration: 3, ease: 'easeOut' }}
           style={{
             width: '180px',
